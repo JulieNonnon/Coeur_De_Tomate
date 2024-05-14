@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  breadcrumbs = [
+    {label:'Accueil', link:'/'}
+  ]
+
+  constructor() {}
+
 }

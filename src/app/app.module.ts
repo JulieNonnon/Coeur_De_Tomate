@@ -31,6 +31,7 @@ import { LegalLegalNoticeComponent } from './pages/legal-legal-notice/legal-lega
 import { LegalCookieManagementComponent } from './pages/legal-cookie-management/legal-cookie-management.component';
 import { ProductDetailsCardComponent } from './reusables/product-details-card/product-details-card.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { CounterComponent } from './components/counter/counter.component';
     LegalLegalNoticeComponent,
     LegalCookieManagementComponent,
     ProductDetailsCardComponent,
-    CounterComponent
+    CounterComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
