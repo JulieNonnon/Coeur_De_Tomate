@@ -32,6 +32,7 @@ import { LegalCookieManagementComponent } from './pages/legal-cookie-management/
 import { ProductDetailsCardComponent } from './reusables/product-details-card/product-details-card.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
     MatIconModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

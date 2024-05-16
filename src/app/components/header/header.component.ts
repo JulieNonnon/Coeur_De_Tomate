@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
+import { Product } from '../../mocks/product.model';
 
 @Component({
   selector: 'app-header',
@@ -27,9 +28,9 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this.checkScreenWidth();
-    
-    const lastProduct = this.productService.getLastProduct();
-    this.lastProductTitle = lastProduct ? lastProduct.title : '';
+    this.productService.getLastProduct().subscribe((lastProduct: Product) => {
+      this.lastProductTitle = lastProduct ? lastProduct.title : '';
+    });
   }
 
   toggleMenu(): void {
