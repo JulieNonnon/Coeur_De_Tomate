@@ -23,10 +23,11 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const productId = +params['id']; // Récupération de l'ID du produit depuis l'URL
-      this.product = this.productService.getProductById(productId); // Récupération du produit depuis le service
-      this.pageTitle = `Graines de tomate ${this.product.title}`; // Construction du titre de la page
+      this.productService.getProductById(productId).subscribe((product: Product) => {
+        this.product = product; // Récupération du produit depuis le service
+        this.pageTitle = `Graines de tomate ${this.product.title}`; // Construction du titre de la page
+      });
     });
   }
-  
 }
 

@@ -2,9 +2,9 @@ export type Category = 'classic' | 'cocktail' | 'original';
 export interface Product {
     id: number;
     title: string;
-    img: string;
-    smallDescription: string;
-    longDescription: string;
+    image: string;
+    small_description: string;
+    long_description: string;
     price: number;
     pitch: string;
     feature1:string;

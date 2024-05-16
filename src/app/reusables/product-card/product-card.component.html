@@ -1,12 +1,12 @@
  <div class="containerProductCard">
     <!-- <a routerLink="/product-details/{{product?.id}}"></a> -->
 
-    <img src="{{ product.img}}" alt="Placeholder Logo Coeur de Tomate">
+    <img src="{{ product.image}}" alt="Image de tomate {{ product.title }}">
 
     <h3> {{ product.title }}</h3>
 
     <div class="detailPriceFlex">
-        <p class="p1">{{ product.smallDescription }}</p>
+        <p class="p1">{{ product.small_description }}</p>
         <div class="priceP"><p class="p2">{{ product.price }} €</p></div>
     </div>
 
