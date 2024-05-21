@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestGlobalCSSComponent } from './components/test-global-css/test-global-css.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './pages/home/home.component';
 import { Error404Component } from './pages/error404/error404.component';
@@ -33,6 +33,8 @@ import { ProductDetailsCardComponent } from './reusables/product-details-card/pr
 import { CounterComponent } from './components/counter/counter.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import { HttpClientModule } from '@angular/common/http';
     LegalCookieManagementComponent,
     ProductDetailsCardComponent,
     CounterComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    ContactComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatGridListModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

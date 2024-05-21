@@ -11,6 +11,7 @@ import { LegalCgvComponent } from './pages/legal-cgv/legal-cgv.component';
 import { LegalPrivacyPolicyComponent } from './pages/legal-privacy-policy/legal-privacy-policy.component';
 import { LegalLegalNoticeComponent } from './pages/legal-legal-notice/legal-legal-notice.component';
 import { LegalCookieManagementComponent } from './pages/legal-cookie-management/legal-cookie-management.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'legal-legal-notice', component: LegalLegalNoticeComponent },
   { path: 'legal-cookie-management', component: LegalCookieManagementComponent },
   { path: 'legal-cgv', component: LegalCgvComponent },
+  { path: 'contact', component: ContactComponent},
   { path: 'error404', component: Error404Component },
   { path: '**', redirectTo: '/error404' }
 ];
