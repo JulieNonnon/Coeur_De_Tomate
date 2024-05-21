@@ -1,0 +1,20 @@
+h1, h2 {
+    color: var(--color-title);
+    font-weight: bold;
+    font-style: italic;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 10%;
+    /* font-size: clamp(24px, 2vw, 48px); */
+}
+
+p {
+    font-size: clamp(14px, 2vw, 26px);
+    font-weight: 400;
+    text-align: center;
+    margin: 0 5%;
+    /* padding: 10% 5% 0; */
+    /* border: 1px solid blue; */
+}

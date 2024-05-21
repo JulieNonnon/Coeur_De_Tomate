@@ -1,0 +1,21 @@
+<div class="contact-form">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="prenom">Prénom</label>
+        <input id="prenom" formControlName="prenom" type="text" />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" />
+      </div>
+      <div>
+        <label for="objet">Objet de l'email</label>
+        <input id="objet" formControlName="objet" type="text" />
+      </div>
+      <div>
+        <label for="message">Contenu du message</label>
+        <textarea id="message" formControlName="message" class="textarea"></textarea>
+      </div>
+      <app-button type="submit" [text]="'Envoyer'"></app-button>
+    </form>
+  </div>
