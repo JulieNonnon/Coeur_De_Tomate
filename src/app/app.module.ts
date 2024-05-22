@@ -35,6 +35,10 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { HttpClientModule } from '@angular/common/http';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { AuthSignupComponent } from './pages/auth-signup/auth-signup.component';
+import { AuthLoginComponent } from './pages/auth-login/auth-login.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -65,7 +69,11 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     CounterComponent,
     BreadcrumbComponent,
     ContactComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    AuthSignupComponent,
+    AuthLoginComponent,
+    AdminDashboardComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
