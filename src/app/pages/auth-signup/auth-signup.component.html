@@ -1,0 +1,13 @@
+<p>auth-signup works!</p>
+
+<form (ngSubmit)="signup()">
+    <input type="name" [(ngModel)]="name" name="name" placeholder="Nom utilisateur" required>
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" required>
+    <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Confirmer le mot de passe" required>
+    <button type="submit">S'inscrire</button>
+</form>
+
+<p>Déjà un utilisateur ? <a href="/login">Se connecter</a></p>
+
+<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>

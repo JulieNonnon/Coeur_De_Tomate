@@ -12,6 +12,8 @@ import { LegalPrivacyPolicyComponent } from './pages/legal-privacy-policy/legal-
 import { LegalLegalNoticeComponent } from './pages/legal-legal-notice/legal-legal-notice.component';
 import { LegalCookieManagementComponent } from './pages/legal-cookie-management/legal-cookie-management.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { AuthSignupComponent } from './pages/auth-signup/auth-signup.component';
+import { AuthLoginComponent } from './pages/auth-login/auth-login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'legal-cookie-management', component: LegalCookieManagementComponent },
   { path: 'legal-cgv', component: LegalCgvComponent },
   { path: 'contact', component: ContactComponent},
+  { path: 'signup', component: AuthSignupComponent },
+  { path: 'login', component: AuthLoginComponent },
   { path: 'error404', component: Error404Component },
   { path: '**', redirectTo: '/error404' }
 ];
