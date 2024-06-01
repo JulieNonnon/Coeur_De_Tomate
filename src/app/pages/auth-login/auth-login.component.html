@@ -1,10 +1,16 @@
-<p>auth-login works!</p>
+<h1>Se connecter</h1>
 
-<form (ngSubmit)="login()">
-    <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
-    <input type="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" required>
-    <button type="submit">Se connecter</button>
-</form>
+<p *ngIf="successMessage" class="success">
+    {{ successMessage }}
+</p>
+
+<div class="loginForm">
+    <form (ngSubmit)="login()">
+        <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" required>
+        <app-button type="submit" [text]="'Se connecter'"></app-button>
+    </form>
+</div>
 
 <p>Vous n'avez pas de compte ? <a href="/signup">Créer un nouvel utilisateur</a></p>
  
