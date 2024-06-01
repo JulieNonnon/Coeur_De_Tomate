@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../../mocks/product.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { PRODUCT_URL } from '../../shared/urls';
 import { Router } from '@angular/router';
 
@@ -12,29 +12,34 @@ export class ProductService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  //Méthode pour récupérer mes produits
-  getProducts(): Observable<Product[]> {
-    return this.http.get<{data:Product[]}>(PRODUCT_URL).pipe(map(response =>response.data));
-  }
+    //Méthode pour récupérer mes produits
+    getProducts(): Observable<Product[]> {
+      return this.http.get<{data:Product[]}>(PRODUCT_URL).pipe(map(response =>response.data));
+    }
 
-  //Méthode pour retourner le dernier produit
-  getLastProduct(): Observable<Product> {
-    return this.http.get<Product>(`${PRODUCT_URL}/last`);
-  }
+    //Méthode pour retourner le dernier produit
+    getLastProduct(): Observable<Product> {
+      return this.http.get<Product>(`${PRODUCT_URL}/last`);
+    }
 
   //Méthode pour récupérer un produit par son Id
-  //Condition: produit retourné si son id existe
-  getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${PRODUCT_URL}/${id}`).pipe(
-      map((product: Product) => {
-        if (!product) {
-          this.router.navigateByUrl('/error404');
-          throw new Error(`Le produit avec l'id ${id} est introuvable.`);
-        }
-        return product;
-      })
-    );
+    //Condition: produit retourné si son id existe
+    getProductById(id: number): Observable<Product> {
+      return this.http.get<{data: Product}>(`${PRODUCT_URL}/${id}`).pipe(
+        map(response => {
+          const product = response.data;
+          if (!product) {
+            this.router.navigateByUrl('/error404');
+            throw new Error(`Le produit avec l'id ${id} est introuvable.`);
+          }
+          return product;
+        })
+      );
+    }
   }
+
+
+
 
   // constructor(
   //   private router: Router
@@ -141,5 +146,3 @@ export class ProductService {
   //   },
   // ];
 
-
-}

@@ -31,9 +31,11 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this.checkScreenWidth();
-    this.productService.getLastProduct().subscribe((lastProduct: Product) => {
-      this.lastProductTitle = lastProduct ? lastProduct.title : '';
-    });
+    
+    //this.productService.getLastProduct().subscribe((lastProduct: Product) => {
+      //this.lastProductTitle = lastProduct ? lastProduct.title : '';
+    //});
+
     this.authService.user.subscribe((user: User | null) => {
       if (user) {
         this.userName = user.name;

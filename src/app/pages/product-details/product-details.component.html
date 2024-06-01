@@ -1,6 +1,6 @@
 <app-banner [title]="pageTitle" [backgroundImageUrl]="'assets/img/banner-product-details.png'"></app-banner>
 
-<div class="productDetailContainer">
+<div *ngIf="product" class="productDetailContainer">
 
     <app-product-details-card [product]="product"></app-product-details-card>
 
