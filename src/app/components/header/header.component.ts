@@ -1,6 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../mocks/product.model';
+import { AuthService } from '../../services/auth/auth.service';
+import { User } from '../../mocks/user.model';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +13,10 @@ export class HeaderComponent implements OnInit{
 
   isDesktopView = true;
   showBurgerMenu = false;
+  userName: string = '';
   lastProductTitle!: string;
-
-  constructor(private productService: ProductService) { }
+  
+  constructor(private productService: ProductService, private authService: AuthService) { }
 
 
   private checkScreenWidth(): void {
@@ -30,6 +33,13 @@ export class HeaderComponent implements OnInit{
     this.checkScreenWidth();
     this.productService.getLastProduct().subscribe((lastProduct: Product) => {
       this.lastProductTitle = lastProduct ? lastProduct.title : '';
+    });
+    this.authService.user.subscribe((user: User | null) => {
+      if (user) {
+        this.userName = user.name;
+      } else {
+        this.userName = '';
+      }
     });
   }
 

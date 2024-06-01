@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-signup',
@@ -14,7 +15,7 @@ export class AuthSignupComponent {
   confirmPassword: string = '';
   errorMessage: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   signup() {
     if(this.password !== this.confirmPassword) {
@@ -27,6 +28,7 @@ export class AuthSignupComponent {
       response => {
         console.log('Inscription réussie', response);
         //redirection vers page connexion
+        this.router.navigate(['/login'], { queryParams: { message: `Bienvenue ${this.name}, votre compte a été créé avec succès 👌✨! \n Vous pouvez à présent vous connecter via le formulaire de connexion ci-dessous.` } });
       },
 
       error => {

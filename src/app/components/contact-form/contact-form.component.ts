@@ -25,7 +25,7 @@ export class ContactFormComponent implements OnInit{
 
   onSubmit(): void {
     if (this.contactForm.valid) {
-      this.http.post('http://localhost:3000/send-email', this.contactForm.value).subscribe(response => {
+      this.http.post('http://localhost:8080/send-email', this.contactForm.value).subscribe(response => {
         console.log('Email sent successfully', response);
       }, error => {
         console.error('Error sending email', error);
