@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CounterComponent {
 
-  @Input() quantity: number = 0; // Quantity per default : 0
+  @Input() quantity: number = 1; // Quantity per default : 0
   @Input() totalPrice: number = 0;
   @Output() quantityUpdate: EventEmitter<number> = new EventEmitter<number>();
 
@@ -21,7 +21,7 @@ export class CounterComponent {
 
   //decrementation strictly no less than 0
   decrement() {
-    if (this.quantity > 0) {
+    if (this.quantity > 1) {
       this.quantity--;
       this.emitQuantity();
     }

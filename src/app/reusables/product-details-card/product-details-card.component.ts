@@ -12,7 +12,7 @@ export class ProductDetailsCardComponent implements OnInit{
   @Input() productId!: number;
   @Input() product!: Product;
   productQuantity : number = 1;
-  totalPrice: number = 1;
+  totalPrice: number = 0;
   
   constructor(private productService: ProductService) {}
 
@@ -24,7 +24,9 @@ export class ProductDetailsCardComponent implements OnInit{
     try {
       this.productService.getProductById(this.productId).subscribe((product: Product) => {
         this.product = product;
-        this.calculateTotalPrice();
+        // Initialiser totalPrice avec le prix du produit
+        this.totalPrice = this.product.price * this.productQuantity;
+        //this.calculateTotalPrice();
       }, error => {
         console.error('Error loading product details:', error);
       });
@@ -39,7 +41,8 @@ export class ProductDetailsCardComponent implements OnInit{
   }
 
   calculateTotalPrice() {
+    if (this.product) {
     this.totalPrice = this.product.price * this.productQuantity;
+    }
   }
-
 }
