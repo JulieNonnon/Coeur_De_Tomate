@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../mocks/product.model';
 import { ProductService } from '../../services/product/product.service';
+import { CartProduct, CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-product-details-card',
@@ -14,7 +15,10 @@ export class ProductDetailsCardComponent implements OnInit{
   productQuantity : number = 1;
   totalPrice: number = 0;
   
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.loadProductDetails();
@@ -45,4 +49,15 @@ export class ProductDetailsCardComponent implements OnInit{
     this.totalPrice = this.product.price * this.productQuantity;
     }
   }
+
+
+  addToCart() {
+    if (!this.product) return;
+    const cartProduct: CartProduct = {
+      product: this.product,
+      quantity: this.productQuantity
+    }
+    this.cartService.addToCart(cartProduct);
+  }
+
 }
