@@ -41,7 +41,7 @@
                 Bienvenue, {{ userName }}
             </div>
             <div class="icon-account"> <a routerLink="/login"><span class="material-icons md-48">person</span></a></div>
-            <div class="icon-cart"> <a routerLink="/cart"><span class="material-icons md-48">shopping_cart</span> </a></div>
+            <div class="icon-cart"> <a routerLink="/cart"><span class="material-icons md-48">shopping_cart</span><span class="quantityBubble">{{ this.cartService.productQuantity }}</span> </a></div>
             
         </div>
 

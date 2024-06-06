@@ -16,7 +16,7 @@
 
                 <div class="counterAndButtonFlex">
                     <app-counter [quantity]="productQuantity" (quantityUpdate)="updateQuantity($event)"></app-counter>
-                    <app-button class="addToCartBtn" [text]="'Ajouter au panier'"></app-button>
+                    <app-button class="addToCartBtn" [text]="'Ajouter au panier'" (click)="addToCart()"></app-button>
                 </div>
         </div>
     </div>

@@ -3,6 +3,7 @@ import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../mocks/product.model';
 import { AuthService } from '../../services/auth/auth.service';
 import { User } from '../../mocks/user.model';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,10 @@ export class HeaderComponent implements OnInit{
   userName: string = '';
   lastProductTitle!: string;
   
-  constructor(private productService: ProductService, private authService: AuthService) { }
+  constructor(
+    private productService: ProductService, 
+    private authService: AuthService,
+    public cartService: CartService) { }
 
 
   private checkScreenWidth(): void {
