@@ -6,7 +6,11 @@ import { AppComponent } from './app.component';
 import { TestGlobalCSSComponent } from './components/test-global-css/test-global-css.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatIconModule} from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './pages/home/home.component';
 import { Error404Component } from './pages/error404/error404.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -80,6 +84,10 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     AppRoutingModule,
     FormsModule,
     MatIconModule,
+    MatTableModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatCardModule,
     BrowserAnimationsModule,
     MatGridListModule,
     FlexLayoutModule,
