@@ -1,1 +1,53 @@
-<p>admin-dashboard works!</p>
+<div class="admin-dashboard">
+  <h1>Tableau de bord Administrateur</h1>
+  
+  <section class="content">
+    
+    <div class="flexTitle">
+        <h2>Gestion des produits</h2> 
+        <button class="btn btn-add" ><span class="material-icons md-48">add</span><span class="tooltip-text">Ajouter un produit</span></button>
+    </div>
+    
+    <div class="table-responsive">
+      <table class="table">
+    
+    <thead>
+    <tr>
+      <th class="th-id">ID</th>
+      <th>Nom</th>
+      <th>Description Courte</th>
+      <th>Description Longue</th>
+      <th class="th-price">Prix</th>
+      <th>Pitch</th>
+      <th>Feature 1</th>
+      <th>Feature 2</th>
+      <th>Feature 3</th>
+      <th>Image</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.small_description }}</td>
+      <td>{{ product.long_description }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.pitch }}</td>
+      <td>{{ product.feature1 }}</td>
+      <td>{{ product.feature2 }}</td>
+      <td>{{ product.feature3 }}</td>
+      <td><img src="{{ product.image}}" alt="Image de tomate {{ product.title }}"></td>
+      
+      <button class="btn btn-edit"><span class="material-icons md-48">edit</span><span class="tooltip-text">Modifier</span></button>
+      <button class="btn btn-delete" ><span class="material-icons md-48">delete</span><span class="tooltip-text">Supprimer</span></button>
+      
+    </tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+  <!-- Ajoutez un formulaire pour créer ou éditer des produits si nécessaire -->
+<!--</div>
+-->

@@ -77,19 +77,19 @@ addToCart(cartProduct : CartProduct) {
 // GET CART TOTAL PRICE
 getCartTotalPrice(): void {
   // on recupere le panier
-  const cart = this.getCart();
+  //const cart = this.getCart();
   // on utilise la méthode reduce avec accumulator et current value pour avoir le prix total du panier
-  const totalPrice = cart.reduce((accumulator:number, currentValue: CartProduct) =>{
+  //const totalPrice = cart.reduce((accumulator:number, currentValue: CartProduct) =>{
     // je recupere mon produit par id dans mon mock
-    const product = this.productService.getProducts();
+    //const product = this.productService.getProducts();
     //si le produit n'existe pas je retourne juste la valeur de l'accumulateur
-    if(!product) return accumulator;
+    //if(!product) return accumulator;
     // si le produit existe, on retourne le produit de l'accumulateur et le prix du prouit : on calcule prix total
     //return accumulator + (currentValue.quantity * product!.price);
     // initialisation de l'accumulateur à 0
-  },0);
+  //},0);
   // on donne la valeur du total du panier à la propriété basketTotal du basket Service
-  this.cartTotalPrice = totalPrice;
+  //this.cartTotalPrice = totalPrice;
 }
 
 
