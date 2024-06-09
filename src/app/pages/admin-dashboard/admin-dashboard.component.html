@@ -5,7 +5,7 @@
     
     <div class="flexTitle">
         <h2>Gestion des produits</h2> 
-        <button class="btn btn-add" ><span class="material-icons md-48">add</span><span class="tooltip-text">Ajouter un produit</span></button>
+        <button class="btn btn-add" (click)="openAddDialog()"><span class="material-icons md-48">add</span><span class="tooltip-text">Ajouter un produit</span></button>
     </div>
     
     <div class="table-responsive">
@@ -39,8 +39,8 @@
       <td>{{ product.feature3 }}</td>
       <td><img src="{{ product.image}}" alt="Image de tomate {{ product.title }}"></td>
       
-      <button class="btn btn-edit"><span class="material-icons md-48">edit</span><span class="tooltip-text">Modifier</span></button>
-      <button class="btn btn-delete" ><span class="material-icons md-48">delete</span><span class="tooltip-text">Supprimer</span></button>
+      <button class="btn btn-edit" (click)="openEditDialog(product)"><span class="material-icons md-48">edit</span><span class="tooltip-text">Modifier</span></button>
+      <button class="btn btn-delete" ><span class="material-icons md-48" (click)="openDeleteConfirmDialog(product.id)">delete</span><span class="tooltip-text">Supprimer</span></button>
       
     </tr>
 </tbody>

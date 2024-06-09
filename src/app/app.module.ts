@@ -43,6 +43,12 @@ import { AuthSignupComponent } from './pages/auth-signup/auth-signup.component';
 import { AuthLoginComponent } from './pages/auth-login/auth-login.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { DialogAddProductComponent } from './components/dialog-add-product/dialog-add-product.component';
+import { DialogEditProductComponent } from './components/dialog-edit-product/dialog-edit-product.component';
+import { DialogDeleteConfirmComponent } from './components/dialog-delete-confirm/dialog-delete-confirm.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -77,12 +83,19 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     AuthSignupComponent,
     AuthLoginComponent,
     AdminDashboardComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    DialogAddProductComponent,
+    DialogEditProductComponent,
+    DialogDeleteConfirmComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     MatIconModule,
     MatTableModule,
     MatButtonModule,

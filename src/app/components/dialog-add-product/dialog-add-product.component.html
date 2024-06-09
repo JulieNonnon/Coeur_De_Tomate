@@ -1,0 +1,50 @@
+<h1>Ajouter un Produit</h1>
+
+<form [formGroup]="addProductForm">
+
+    <div class="dialog-fields">
+        <mat-form-field>
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description courte</mat-label>
+            <input matInput formControlName="small_description">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description longue</mat-label>
+            <input matInput formControlName="long_description">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Prix</mat-label>
+            <input matInput formControlName="price" type="number">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Pitch</mat-label>
+            <input matInput formControlName="pitch">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Feature 1</mat-label>
+            <input matInput formControlName="feature1">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Feature 2</mat-label>
+            <input matInput formControlName="feature2">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Feature 3</mat-label>
+            <input matInput formControlName="feature3">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Image</mat-label>
+            <input matInput formControlName="image">
+        </mat-form-field>
+    </div>
+
+  
+  <div class="dialog-actions">
+    <button mat-button (click)="onCancel()">Annuler</button>
+    <button mat-button [disabled]="!addProductForm.valid" (click)="onAdd()">Ajouter</button>
+  </div>
+
+</form>
