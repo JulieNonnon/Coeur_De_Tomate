@@ -36,6 +36,36 @@ export class ProductService {
         })
       );
     }
+
+    // Méthode pour ajouter un nouveau produit
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<{data: Product}>(PRODUCT_URL, product).pipe(
+      map(response => response.data),
+      catchError(this.handleError)
+    );
+  }
+
+  // Méthode pour mettre à jour un produit existant
+  updateProduct(product: Product): Observable<Product> {
+    return this.http.put<{data: Product}>(`${PRODUCT_URL}/${product.id}`, product).pipe(
+      map(response => response.data),
+      catchError(this.handleError)
+    );
+  }
+
+  // Méthode pour supprimer un produit par son Id
+  deleteProduct(productId: number): Observable<void> {
+    return this.http.delete<void>(`${PRODUCT_URL}/${productId}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Méthode pour gérer les erreurs
+  private handleError(error: any): Observable<never> {
+    console.error('Une erreur est survenue:', error);
+    return throwError(() => new Error('Une erreur est survenue, veuillez réessayer plus tard.'));
+  }
+
   }
 
 
