@@ -35,7 +35,7 @@ export class DialogEditProductComponent {
   // Clic bouton "modifier"
   onSubmit(): void {
     if (this.editProductForm.valid) {
-      console.log('Formulaire soumis:', this.editProductForm.value); 
+      console.log('Produit modifié : ', this.editProductForm.value); 
       this.dialogRef.close(this.editProductForm.value);
     }
   }

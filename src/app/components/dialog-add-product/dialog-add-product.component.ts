@@ -28,9 +28,20 @@ export class DialogAddProductComponent {
     })
   }
 
+//INPUT POUR TELECHARGER IMAGE ?
+
+  // selectedFile: any = null;
+
+  // onFileSelected(event: any): void {
+  //     this.selectedFile = event.target.files[0] ?? null;
+  
+  // }
+
+
   // Clic bouton "ajouter"
   onAdd(): void {
     if (this.addProductForm.valid) {
+      console.log('Produit créé : ', this.addProductForm.value);
       this.dialogRef.close(this.addProductForm.value);
     }
   }
