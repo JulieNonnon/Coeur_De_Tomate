@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Product } from '../../mocks/product.model';
 
 @Component({
   selector: 'app-dialog-edit-product',
@@ -14,9 +15,11 @@ export class DialogEditProductComponent {
   constructor(
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<DialogEditProductComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: Product
   ) {
+    console.log('Données passées au dialogue:', data);
     this.editProductForm = this.formBuilder.group({
+      id: [data.id],
       title: [data.title, Validators.required],
       image: [data.image, Validators.required],
       small_description: [data.small_description, Validators.required],
@@ -30,8 +33,9 @@ export class DialogEditProductComponent {
   }
 
   // Clic bouton "modifier"
-  onEdit(): void {
+  onSubmit(): void {
     if (this.editProductForm.valid) {
+      console.log('Formulaire soumis:', this.editProductForm.value); 
       this.dialogRef.close(this.editProductForm.value);
     }
   }

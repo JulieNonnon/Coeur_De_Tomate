@@ -54,6 +54,7 @@ export class AdminDashboardComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        console.log('Données modifiées:', result); 
         this.productService.updateProduct(result).subscribe(() => {
           this.loadProducts();
         });

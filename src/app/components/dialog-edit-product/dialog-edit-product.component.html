@@ -1,6 +1,6 @@
 <h1>Modifier un Produit</h1>
 
-<form [formGroup]="editProductForm" (ngSubmit)="onEdit()">
+<form [formGroup]="editProductForm" (ngSubmit)="onSubmit()">
 
   <mat-form-field appearance="fill">
     <mat-label>Nom</mat-label>
@@ -41,6 +41,6 @@
 
   <div class="dialog-actions">
     <button mat-button (click)="onCancel()">Annuler</button>
-    <button mat-button [disabled]="!editProductForm.valid" (click)="onEdit()">Modifier</button>
+    <button mat-button [disabled]="!editProductForm.valid" (click)="onSubmit()">Modifier</button>
   </div>
 </form>
