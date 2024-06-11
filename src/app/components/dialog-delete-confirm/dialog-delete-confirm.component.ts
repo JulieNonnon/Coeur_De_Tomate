@@ -14,6 +14,7 @@ export class DialogDeleteConfirmComponent {
 
   // Clic bouton "supprimer"
   onConfirm(): void {
+    console.log('Produit supprimé : ', true); 
     this.dialogRef.close(true);
   }
 
