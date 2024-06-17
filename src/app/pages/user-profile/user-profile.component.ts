@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Address } from '../../mocks/address.model';
 
 @Component({
   selector: 'app-user-profile',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './user-profile.component.css'
 })
 export class UserProfileComponent {
+
+  addresses: Address[] = [];
 
 }

@@ -15,6 +15,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { AuthSignupComponent } from './pages/auth-signup/auth-signup.component';
 import { AuthLoginComponent } from './pages/auth-login/auth-login.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'login', component: AuthLoginComponent },
   { path: 'error404', component: Error404Component },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'user-profile', component: UserProfileComponent},
   { path: '**', redirectTo: '/error404' }
 ];
 
