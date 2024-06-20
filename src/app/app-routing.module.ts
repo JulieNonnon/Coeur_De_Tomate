@@ -16,6 +16,8 @@ import { AuthSignupComponent } from './pages/auth-signup/auth-signup.component';
 import { AuthLoginComponent } from './pages/auth-login/auth-login.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { NoAuthGuard } from './guards/no-auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -29,11 +31,13 @@ const routes: Routes = [
   { path: 'legal-cookie-management', component: LegalCookieManagementComponent },
   { path: 'legal-cgv', component: LegalCgvComponent },
   { path: 'contact', component: ContactComponent},
-  { path: 'signup', component: AuthSignupComponent },
-  { path: 'login', component: AuthLoginComponent },
+  { path: 'signup', component: AuthSignupComponent, canActivate: [NoAuthGuard] },
+  { path: 'login', component: AuthLoginComponent, canActivate: [NoAuthGuard] },
   { path: 'error404', component: Error404Component },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'user-profile', component: UserProfileComponent},
+  { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard] },
+  // { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard], data: { roles: ['admin'] } },
+  // { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard], data: { roles: ['user'] }},
   { path: '**', redirectTo: '/error404' }
 ];
 

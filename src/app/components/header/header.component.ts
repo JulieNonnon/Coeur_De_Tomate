@@ -4,6 +4,7 @@ import { Product } from '../../mocks/product.model';
 import { AuthService } from '../../services/auth/auth.service';
 import { User } from '../../mocks/user.model';
 import { CartService } from '../../services/cart/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,11 +17,14 @@ export class HeaderComponent implements OnInit{
   showBurgerMenu = false;
   userName: string = '';
   lastProductTitle!: string;
+  currentUser: User | null = null;
   
   constructor(
     private productService: ProductService, 
     private authService: AuthService,
-    public cartService: CartService) { }
+    public cartService: CartService,
+    private router: Router
+  ) { }
 
 
   private checkScreenWidth(): void {
@@ -40,14 +44,31 @@ export class HeaderComponent implements OnInit{
       //this.lastProductTitle = lastProduct ? lastProduct.title : '';
     //});
 
-    this.authService.user.subscribe((user: User | null) => {
-      if (user) {
-        this.userName = user.name;
-      } else {
-        this.userName = '';
-      }
+    // this.authService.user.subscribe((user: User | null) => {
+    //   if (user) {
+    //     this.userName = user.name;
+    //   } else {
+    //     this.userName = '';
+    //   }
+    // });
+
+    this.authService.user.subscribe(user => {
+      this.currentUser = user;
     });
   }
+
+    redirectToProfile() {
+      if (this.currentUser) {
+        if (this.currentUser.is_admin) {
+          this.router.navigate(['/admin-dashboard']);
+        } else {
+          this.router.navigate(['/user-profile']);
+        }
+      } else {
+        this.router.navigate(['/login']);
+      }
+    }
+  
 
   toggleMenu(): void {
     this.showBurgerMenu = !this.showBurgerMenu;
@@ -58,9 +79,7 @@ export class HeaderComponent implements OnInit{
   searchTerm: string = '';
 
   onSubmit() {
-    // Mettez en œuvre la logique de recherche ici, par exemple, vous pouvez émettre un événement
-    // pour informer le composant parent de la recherche.
-    // Vous pouvez également appeler une fonction de service pour effectuer la recherche.
+    // future fonctionnalité barre de recherche
   }
 
 

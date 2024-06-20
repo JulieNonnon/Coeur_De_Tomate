@@ -1,3 +1,12 @@
+.dialogBox {
+  overflow: hidden;
+  padding: 20px;
+}
+
+mat-form-field{
+  margin: 0 5px;
+}
+
 .dialog-actions {
     display: flex;
     justify-content: flex-end;
